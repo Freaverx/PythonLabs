@@ -1,4 +1,4 @@
-def check_numbers(numbers):
+def checknumbers(numbers):
     if all(x == numbers[0] for x in numbers):
         return "Все числа равны"
     elif len(set(numbers)) == len(numbers):
@@ -8,4 +8,4 @@ def check_numbers(numbers):
 
 # Чтение списка чисел из ввода
 numbers = input().strip().split()
-print(check_numbers(numbers))
+print(checknumbers(numbers))

@@ -23,17 +23,17 @@ class Stack:
         if self.top is None:
             raise IndexError("Стек пуст, нельзя извлечь элемент.")
 
-        popped_node = self.top  # сохраняем верхний узел
+        poppednode = self.top  # сохраняем верхний узел
         self.top = self.top.next  # перемещаем ссылку на верхний элемент вниз
-        return popped_node.data  # возвращаем данные извлеченного узла
+        return poppednode.data  # возвращаем данные извлеченного узла
 
     def push(self, val):
         """
         Добавление элемента val в вершину стека
         """
-        new_node = Node(val)  # создаем новый узел
-        new_node.next = self.top  # новый узел ссылается на текущий верхний узел
-        self.top = new_node  # обновляем верхний узел
+        newnode = Node(val)  # создаем новый узел
+        newnode.next = self.top  # новый узел ссылается на текущий верхний узел
+        self.top = newnode  # обновляем верхний узел
 
     def print_stack(self):
         """

@@ -22,14 +22,14 @@ class Queue:
         """
         Добавление элемента val в конец очереди
         """
-        new_node = Node(val)  # создаем новый узел
+        newnode = Node(val)  # создаем новый узел
         if self.start is None:  # если очередь пуста
-            self.start = new_node
-            self.end = new_node
+            self.start = newnode
+            self.end = newnode
         else:
-            self.end.nref = new_node  # предыдущий последний узел ссылается на новый
-            new_node.pref = self.end  # новый узел ссылается на предыдущий последний узел
-            self.end = new_node  # обновляем конец очереди
+            self.end.nref = newnode  # предыдущий последний узел ссылается на новый
+            newnode.pref = self.end  # новый узел ссылается на предыдущий последний узел
+            self.end = newnode  # обновляем конец очереди
 
     def pop(self):
         """
@@ -45,23 +45,23 @@ class Queue:
         else:
             self.start.pref = None  # обнуляем ссылку на предыдущий узел у нового начала
 
-        return popped_node.data  # возвращаем данные извлеченного узла
+        return poppednode.data  # возвращаем данные извлеченного узла
 
     def insert(self, n, val):
         """
         Вставить элемент val между элементами с номерами n-1 и n
         """
-        new_node = Node(val)
+        newnode = Node(val)
         current = self.start
         index = 0
 
         if n == 0:  # вставка в начало
-            new_node.nref = self.start
+            newnode.nref = self.start
             if self.start is not None:
-                self.start.pref = new_node
-            self.start = new_node
+                self.start.pref = newnode
+            self.start = newnode
             if self.end is None:  # если очередь была пустой
-                self.end = new_node
+                self.end = newnode
             return
 
         while current is not None and index < n:
@@ -70,14 +70,14 @@ class Queue:
 
         if current is None:  # вставка в конец
             self.end.nref = new_node
-            new_node.pref = self.end
+            newnode.pref = self.end
             self.end = new_node
         else:  # вставка между узлами
-            new_node.nref = current
-            new_node.pref = current.pref
+            newnode.nref = current
+            newnode.pref = current.pref
             if current.pref is not None:
-                current.pref.nref = new_node
-            current.pref = new_node
+                current.pref.nref = newnode
+            current.pref = newnode
 
     def print_queue(self):
         """
